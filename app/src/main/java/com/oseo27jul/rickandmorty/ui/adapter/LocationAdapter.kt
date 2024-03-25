@@ -87,7 +87,7 @@ class LocationAdapter(private val listener: onItemClickListeners):
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                results?.let {
+                results?.let { it ->
                     val filteredList = it.values as? List<Locations>
                     filteredList?.let { submitList(it) }
                 }
