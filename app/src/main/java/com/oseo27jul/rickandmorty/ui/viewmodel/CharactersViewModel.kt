@@ -2,7 +2,7 @@ package com.oseo27jul.rickandmorty.ui.viewmodel
 
 
 
-import androidx.fragment.app.FragmentManager
+
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -32,7 +32,7 @@ class CharactersViewModel:ViewModel() {
     val selectedCharacter: LiveData<Character>
         get() = _selectedCharacter
 
-    private var _fragmentManager: FragmentManager? = null
+
 
 
 

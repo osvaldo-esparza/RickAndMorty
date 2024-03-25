@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oseo27jul.rickandmorty.data.model.Locations
 
 import com.oseo27jul.rickandmorty.databinding.LocationItemBinding
-import java.util.Locale
+
 
 
 class LocationAdapter(private val listener: onItemClickListeners):
@@ -87,8 +87,12 @@ class LocationAdapter(private val listener: onItemClickListeners):
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                submitList(results?.values as List<Locations>)
+                results?.let {
+                    val filteredList = it.values as? List<Locations>
+                    filteredList?.let { submitList(it) }
+                }
             }
+
         }
     }
 }

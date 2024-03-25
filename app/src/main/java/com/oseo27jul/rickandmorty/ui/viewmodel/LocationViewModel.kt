@@ -1,6 +1,6 @@
 package com.oseo27jul.rickandmorty.ui.viewmodel
 
-import androidx.fragment.app.FragmentManager
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +27,7 @@ class LocationViewModel:ViewModel() {
     val selectedCharacter: LiveData<Locations>
         get() = _selectedCharacter
 
-    private var _fragmentManager: FragmentManager? = null
+
 
 
 
@@ -42,10 +42,10 @@ class LocationViewModel:ViewModel() {
             viewModelScope.launch {
                 try {
                     val result: List<Locations> = locationUseCase.getListLocation(page)
-                    result?.let {
+                    result.let {
                         _locationUse.postValue(it)
                     }
-                } catch (e: Exception) {
+                } catch (_: Exception) {
 
                 } finally {
                     _isLoading.postValue(false)
