@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.oseo27jul.rickandmorty.LocationDetail
 import com.oseo27jul.rickandmorty.R
 
 import com.oseo27jul.rickandmorty.data.model.Locations
@@ -30,8 +29,8 @@ class LocationFragment : Fragment() {
 
 
     private val locationAdapter= LocationAdapter(object : onItemClickListeners {
-        override fun onItemClick(locat:Locations){
-            navigateToLocationDetail(locat)
+        override fun onItemClick(location:Locations){
+            navigateToLocationDetail(location)
         }
 
 

@@ -1,4 +1,4 @@
-package com.oseo27jul.rickandmorty
+package com.oseo27jul.rickandmorty.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.oseo27jul.rickandmorty.R
 
 import com.oseo27jul.rickandmorty.databinding.ActivityMainBinding
 import com.oseo27jul.rickandmorty.ui.adapter.TabsPagerAdapter

@@ -1,10 +1,11 @@
-package com.oseo27jul.rickandmorty
+package com.oseo27jul.rickandmorty.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.oseo27jul.rickandmorty.R
 
 
 class LocationDetail : Fragment() {
