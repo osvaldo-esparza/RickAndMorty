@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import androidx.fragment.app.activityViewModels
+
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.oseo27jul.rickandmorty.LocationDetail
@@ -21,7 +21,7 @@ import com.oseo27jul.rickandmorty.ui.adapter.LocationAdapter
 import com.oseo27jul.rickandmorty.ui.adapter.onItemClickListeners
 
 import com.oseo27jul.rickandmorty.ui.viewmodel.LocationViewModel
-import com.oseo27jul.rickandmorty.ui.viewmodel.MainViewModel
+
 
 class LocationFragment : Fragment() {
 

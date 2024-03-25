@@ -2,7 +2,7 @@ package com.oseo27jul.rickandmorty
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -15,7 +15,7 @@ import com.oseo27jul.rickandmorty.ui.fragments.Characters.CharacterFragment
 
 import com.oseo27jul.rickandmorty.ui.fragments.EpisodesFragment
 import com.oseo27jul.rickandmorty.ui.fragments.LocationFragment
-import com.oseo27jul.rickandmorty.ui.viewmodel.MainViewModel
+
 
 class MainActivity : AppCompatActivity() {
 
