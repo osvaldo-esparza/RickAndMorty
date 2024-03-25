@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RickAndMorty</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="character">Personajes</string>
+    <string name="location">Ubicación</string>
+    <string name="episodes">Episodios</string>
+    <string name="status">Estatus: </string>
+    <string name="name">Nombre: </string>
+    <string name="species">Especie: </string>
+</resources>
