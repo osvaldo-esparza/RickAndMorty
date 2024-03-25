@@ -62,6 +62,22 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_marginStart="12dp"
+            android:text="@{'#' + String.valueOf(character.id)}"
+            android:textColor="@color/background"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:translationZ="100dp"
+            app:layout_constraintEnd_toEndOf="@id/header"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/index"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,14 +99,223 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:layout_marginTop="100dp"
+            android:text="@string/gender"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             android:translationZ="100dp"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline2"
-            tools:text="Estatus" />
+            tools:text="Genero" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:translationZ="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/status">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/male"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+
+                    android:scaleType="fitCenter"
+                    android:src="@{character.gender.equals(&quot;Male&quot;) ? @drawable/male_select : @drawable/male}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/male"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/female"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+
+                    android:scaleType="fitCenter"
+                    android:src="@{character.gender.equals(&quot;Female&quot;) ? @drawable/female_select : @drawable/female}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/genderless"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+
+                    android:scaleType="fitCenter"
+                    android:src="@{character.gender.equals(&quot;Genderless&quot;) ? @drawable/genderless_select : @drawable/genderless}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/genderless"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/unknow"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+
+                    android:scaleType="fitCenter"
+                    android:src="@{character.gender.equals(&quot;unknown&quot;) ? @drawable/unknow_select : @drawable/unknow}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unknown"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/estatu"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            android:translationZ="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:background="#A1D5D1D1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@{character.status}"
+                android:textColor="@color/background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                tools:text="Vivo" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            android:translationZ="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/location"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold"
+
+                tools:text="Ubicacion:" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@{character.location.name}"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                tools:text="ubicacion" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:translationZ="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold"
+
+                tools:text="Origen:" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{character.origin.name}"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:layout_marginStart="5dp"
+                tools:text="tierra" />
+
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

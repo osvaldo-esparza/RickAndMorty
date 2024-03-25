@@ -63,7 +63,7 @@ data class Character(
     @SerializedName("created") val created: String
 ): Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readInt(),
+        parcel.readInt() ?: 0,
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",

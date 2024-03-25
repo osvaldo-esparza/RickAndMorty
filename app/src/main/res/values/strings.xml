@@ -8,4 +8,10 @@
     <string name="status">Estatus: </string>
     <string name="name">Nombre: </string>
     <string name="species">Especie: </string>
+    <string name="male">Hombre</string>
+    <string name="female">Mujer</string>
+    <string name="genderless">Sin genero</string>
+    <string name="unknown">Desconocido</string>
+    <string name="gender">Género:</string>
+    <string name="origin">Origen:</string>
 </resources>

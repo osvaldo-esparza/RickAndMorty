@@ -3,6 +3,7 @@ package com.oseo27jul.rickandmorty.ui.viewmodel
 
 import android.os.Bundle
 import android.provider.Settings.Global.putInt
+import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
@@ -11,6 +12,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.oseo27jul.rickandmorty.R
 import com.oseo27jul.rickandmorty.data.model.Character
 import com.oseo27jul.rickandmorty.data.model.CharactersModel
