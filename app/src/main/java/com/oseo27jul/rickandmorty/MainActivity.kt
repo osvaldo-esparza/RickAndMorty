@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.oseo27jul.rickandmorty.R
+
 import com.oseo27jul.rickandmorty.databinding.ActivityMainBinding
 import com.oseo27jul.rickandmorty.ui.adapter.TabsPagerAdapter
 import com.oseo27jul.rickandmorty.ui.fragments.Characters.CharacterFragment
@@ -18,7 +20,8 @@ import com.oseo27jul.rickandmorty.ui.viewmodel.MainViewModel
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             // Inicializar el ViewPager y TabLayout
             val viewPager = binding.viewPager
             val tabLayout = binding.tabLayout
+
+        viewPager.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
 
             // Adaptador para el ViewPager
             val adapter = TabsPagerAdapter(supportFragmentManager, lifecycle)
@@ -50,17 +55,12 @@ class MainActivity : AppCompatActivity() {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     tab?.let {
                         // Cambiar el Fragment en el FragmentContainerView según la pestaña seleccionada
-                        val fragment = when (tab.position) {
-                            0 -> CharacterFragment()
-                            1 -> LocationFragment()
-                            2 -> EpisodesFragment()
-                            else -> throw IllegalArgumentException("Position ${tab.position} is not supported")
+                        when (tab.position) {
+                            0 -> showFragment(CharacterFragment())
+                            1 -> showFragment(LocationFragment())
+                            2 -> showFragment(EpisodesFragment())
                         }
-                        supportFragmentManager.beginTransaction().apply {
-                            replace(R.id.containerPrincipal, fragment)
-                            setReorderingAllowed(true)
-                            commit()
-                        }
+
                     }
                 }
 
@@ -75,5 +75,19 @@ class MainActivity : AppCompatActivity() {
        // }
 
 
+    }
+
+    //hacemos que solo se haga una instancia de un fragment
+    private fun showFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            // Ocultar todos los fragmentos
+            hide(CharacterFragment())
+            hide(LocationFragment())
+            hide(EpisodesFragment())
+            // Mostrar el fragmento deseado
+            show(fragment)
+            // Confirmar la transacción
+            commit()
+        }
     }
 }

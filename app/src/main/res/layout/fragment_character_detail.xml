@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/male"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
 
                     />
 
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/female"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
 
                     />
             </LinearLayout>
@@ -191,7 +191,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/genderless"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
 
                     />
             </LinearLayout>
@@ -217,7 +217,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/unknown"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
 
                     />
             </LinearLayout>
@@ -244,7 +244,7 @@
                 android:layout_marginStart="5dp"
                 android:text="@{character.status}"
                 android:textColor="@color/background"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 tools:text="Vivo" />
 
@@ -268,7 +268,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/location"
                 android:textColor="@color/white"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:textStyle="bold"
 
                 tools:text="Ubicacion:" />
@@ -279,7 +279,7 @@
                 android:layout_marginStart="5dp"
                 android:text="@{character.location.name}"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 tools:text="ubicacion" />
 
         </LinearLayout>
@@ -299,9 +299,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/status"
+                android:text="@string/origin"
                 android:textColor="@color/white"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:textStyle="bold"
 
                 tools:text="Origen:" />
@@ -311,7 +311,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{character.origin.name}"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:layout_marginStart="5dp"
                 tools:text="tierra" />
 
