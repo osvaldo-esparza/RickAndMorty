@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.oseo27jul.rickandmorty.data.model.Character
-import com.oseo27jul.rickandmorty.data.model.CharactersModel
 import com.oseo27jul.rickandmorty.databinding.CharacterItemBinding
 
 interface OnItemClickListener {

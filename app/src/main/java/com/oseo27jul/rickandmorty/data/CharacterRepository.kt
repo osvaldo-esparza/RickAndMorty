@@ -8,7 +8,7 @@ import com.oseo27jul.rickandmorty.data.network.CharacterService
 class CharacterRepository {
     private val api = CharacterService()
 
-    suspend fun getCharacter(page:Int):CharactersModel{
+    suspend fun getCharacter(page:Int): CharactersModel {
         val response = api.getCharacters(page)
         CharacterProvider.character = response
         return response

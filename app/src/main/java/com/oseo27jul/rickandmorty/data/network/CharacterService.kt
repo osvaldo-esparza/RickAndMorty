@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 class CharacterService {
     private val retrofit = RetrofitHelper.getRetrofitInstance()
 
-    suspend fun getCharacters(page:Int):CharactersModel{
+    suspend fun getCharacters(page:Int): CharactersModel {
         return withContext(Dispatchers.IO){
             val response = retrofit.create(CharactersApiClient::class.java).getCharacters(page)
             (response.body() ?: CharactersModel())

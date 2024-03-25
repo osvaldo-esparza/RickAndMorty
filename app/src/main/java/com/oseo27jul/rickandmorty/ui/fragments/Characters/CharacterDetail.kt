@@ -15,7 +15,7 @@ class CharacterDetail : Fragment() {
 
     private lateinit var binding: FragmentCharacterDetailBinding
 
-    private lateinit var character: com.oseo27jul.rickandmorty.data.model.Character
+    private lateinit var character: Character
 
     companion object {
         // Método estático para crear una nueva instancia de CharacterDetail
