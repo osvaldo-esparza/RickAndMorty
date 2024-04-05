@@ -15,4 +15,5 @@
     <string name="gender">Género:</string>
     <string name="origin">Origen:</string>
     <string name="descripcionImagen">Imagen prueba</string>
+    <string name="residents">Habitantes</string>
 </resources>

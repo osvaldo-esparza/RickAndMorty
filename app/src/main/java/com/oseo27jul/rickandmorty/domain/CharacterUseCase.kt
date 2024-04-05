@@ -11,4 +11,6 @@ class CharacterUseCase {
 
     suspend fun getListCharacter(page: Int) : List<Character> = repository.getListCharecter(page)
 
+    suspend fun getCharacter(characterID:Int): Character? = repository.getCharacterByID(characterID)
+
 }

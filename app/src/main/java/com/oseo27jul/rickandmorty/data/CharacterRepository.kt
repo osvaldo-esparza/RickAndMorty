@@ -18,4 +18,9 @@ class CharacterRepository {
         val response = api.getCharacters(page).results
         return response
     }
+
+    suspend fun getCharacterByID(characterID : Int): Character?{
+        val response = api.getCharacter(characterID)
+        return response
+    }
 }

@@ -1,10 +1,171 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.LocationDetail">
+    >
+
+    <data>
+
+        <variable
+            name="location"
+            type="com.oseo27jul.rickandmorty.data.model.Locations" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/infoPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:padding="5dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                app:cardCornerRadius="15dp"
+                >
+
+                <!-- Contenido de la tarjeta -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewCharacterStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:maxLines="2"
+                        android:text="@{location.name}"
+                        android:textStyle="bold"
+                        android:textColor="@color/dragon"
+                        android:textSize="28sp"
+                        tools:text="Nombre"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvSpecies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:maxLines="2"
+                        android:text="@{location.type}"
+                        android:textColor="@color/background"
+                        android:textSize="24sp"
+                        tools:text="Tipo" />
+
+                    <TextView
+                        android:id="@+id/tvDimension"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:maxLines="2"
+                        android:text="@{location.dimension}"
+                        android:textColor="@color/background"
+                        android:textSize="18sp"
+                        tools:text="Dimensión" />
+
+
+                </LinearLayout>
 
 
 
-</FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Residents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16sp"
+                android:layout_marginEnd="16sp"
+                android:padding="5dp"
+                android:layout_marginBottom="16sp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/infoPrincipal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvResidents"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="@string/residents"
+                        android:textColor="@color/dragon"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewResidents"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="35sp"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:scrollbarThumbVertical="@drawable/scrollbar"
+                        android:scrollbars="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvResidents"
+                        app:layout_constraintVertical_bias="0.0"
+
+                        app:spanCount="2"
+                        tools:listitem="@layout/character_item" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarLocationDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvResidents"
+                        android:visibility="invisible"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
