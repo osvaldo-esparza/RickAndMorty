@@ -88,10 +88,14 @@ class CharactersViewModel : ViewModel() {
         return residentsLoaded
     }
 
+    fun setResident(bandera: Boolean){
+        residentsLoaded = bandera
+    }
+
 
 
     fun getCharacterByURL(urls: List<String>) {
-        if (residentsLoaded) return
+       // if (residentsLoaded) return
         if (isLoading || isLastPage) return
 
 
@@ -108,7 +112,7 @@ class CharactersViewModel : ViewModel() {
             }
 
             val currentList = _characters.value ?: emptyList()
-            val updatedList =  characters
+            val updatedList =  currentList + characters
             _characters.postValue(updatedList)
 
             isLoading = false
