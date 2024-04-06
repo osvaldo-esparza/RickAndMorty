@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.oseo27jul.rickandmorty.R
 import com.oseo27jul.rickandmorty.data.model.Character
 import com.oseo27jul.rickandmorty.databinding.CharacterItemBinding
 
@@ -28,6 +30,15 @@ class CharacterAdapter(private val listener: OnItemClickListener) :
             Glide.with(itemView.context)
                 .load(character.image)
                 .into(binding.imageViewCharacter)
+
+            // Establecer el color de fondo del LinearLayout según el estado del personaje
+            val backgroundColor = when(character.status){
+                "Alive" -> ContextCompat.getColor(itemView.context, R.color.aliveColor)
+                "Dead" -> ContextCompat.getColor(itemView.context, R.color.deadColor)
+                else -> ContextCompat.getColor(itemView.context, R.color.unknownColor)
+            }
+            binding.linearLayout.setBackgroundColor(backgroundColor)
+
             itemView.setOnClickListener { listener.onItemClick(character) }
 
         }

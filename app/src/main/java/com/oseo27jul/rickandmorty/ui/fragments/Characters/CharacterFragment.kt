@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oseo27jul.rickandmorty.R
 import com.oseo27jul.rickandmorty.data.model.Character
 import com.oseo27jul.rickandmorty.databinding.FragmentCharacterBinding
+import com.oseo27jul.rickandmorty.ui.MainActivity
 import com.oseo27jul.rickandmorty.ui.adapter.CharacterAdapter
 import com.oseo27jul.rickandmorty.ui.adapter.OnItemClickListener
 import com.oseo27jul.rickandmorty.ui.viewmodel.CharactersViewModel
@@ -27,7 +28,7 @@ class CharacterFragment : Fragment() {
 
     })
 
-    private fun navigateToCharacterDetail(character: Character) {
+    /*private fun navigateToCharacterDetail(character: Character) {
         val bundle = Bundle().apply {
             putParcelable("character",character)
         }
@@ -38,7 +39,26 @@ class CharacterFragment : Fragment() {
             .replace(R.id.containerPrincipal, fragment) // Reemplazar con el ID correcto
             .addToBackStack(null)
             .commit()
+    }*/
+
+
+    private fun navigateToCharacterDetail(character: Character) {
+        val bundle = Bundle().apply {
+            putParcelable("character", character)
+        }
+        val fragment = CharacterDetail().apply {
+            arguments = bundle
+        }
+
+        // Obtener la instancia de FragmentManager del MainActivity
+        val fragmentManager = requireActivity().supportFragmentManager
+
+        // Llamar al método showSecondaryFragment() en el MainActivity para mostrar el fragmento secundario
+        (requireActivity() as MainActivity).showSecondaryFragment(fragment)
     }
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

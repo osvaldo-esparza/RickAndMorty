@@ -69,5 +69,8 @@
     <color name="md_pink_200">#F8BBD0</color> <!-- Fairy -->
     <color name="md_white_200">#DDCACA</color> <!-- Fairy -->
 
+    <color name="aliveColor">#DC20B184</color>
+    <color name="deadColor">#DCB12020</color>
+    <color name="unknownColor">#DCB1A320</color>
 
 </resources>

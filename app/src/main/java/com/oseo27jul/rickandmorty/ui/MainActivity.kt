@@ -1,6 +1,7 @@
 package com.oseo27jul.rickandmorty.ui
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +19,7 @@ import com.oseo27jul.rickandmorty.ui.fragments.EpisodesFragment
 import com.oseo27jul.rickandmorty.ui.fragments.LocationFragment
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IOnBackPressed {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -91,4 +92,42 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
+
+
+    fun showSecondaryFragment(fragment: Fragment) {
+        // Ocultar el TabLayout
+        binding.tabLayout.visibility = View.GONE
+
+        // Iniciar una transacción del fragmento y reemplazar el contenido del contenedor principal
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.containerPrincipal, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    fun showPrimaryFragment() {
+        // Restaurar la visibilidad del TabLayout
+        binding.tabLayout.visibility = View.VISIBLE
+
+        // Pop el último fragmento para mostrar el fragmento principal
+        supportFragmentManager.popBackStack()
+    }
+
+
+
+    override fun onBackPressed(){
+        super.onBackPressed()
+        // Verificar si hay fragmentos en la pila de retroceso
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            // Si hay fragmentos en la pila de retroceso, realizar el comportamiento predeterminado
+           // super.onBackPressed()
+        } else {
+            // Si no hay fragmentos en la pila de retroceso, mostrar el fragmento principal y restaurar la visibilidad del TabLayout
+            showPrimaryFragment()
+
+        }
+    }
+
+
+
 }

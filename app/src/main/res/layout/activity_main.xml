@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+
+
     <!-- TabLayout -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"

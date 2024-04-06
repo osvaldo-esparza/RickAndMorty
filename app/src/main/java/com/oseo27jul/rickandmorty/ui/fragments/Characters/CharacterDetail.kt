@@ -17,6 +17,8 @@ class CharacterDetail : Fragment() {
 
     private lateinit var character: Character
 
+
+
     companion object {
         // Método estático para crear una nueva instancia de CharacterDetail
         fun newInstance(character: Character): CharacterDetail {
@@ -53,4 +55,9 @@ class CharacterDetail : Fragment() {
 
         return binding.root
     }
+
+
+
+
+
 }

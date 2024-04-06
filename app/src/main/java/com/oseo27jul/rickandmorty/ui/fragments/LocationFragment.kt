@@ -15,6 +15,7 @@ import com.oseo27jul.rickandmorty.R
 
 import com.oseo27jul.rickandmorty.data.model.Locations
 import com.oseo27jul.rickandmorty.databinding.FragmentLocationBinding
+import com.oseo27jul.rickandmorty.ui.MainActivity
 
 import com.oseo27jul.rickandmorty.ui.adapter.LocationAdapter
 import com.oseo27jul.rickandmorty.ui.adapter.onItemClickListeners
@@ -29,7 +30,7 @@ class LocationFragment : Fragment() {
 
 
     private val locationAdapter= LocationAdapter(object : onItemClickListeners {
-        override fun onItemClick(location:Locations){
+        override fun onItemClick(location: Locations){
             navigateToLocationDetail(location)
         }
 
@@ -43,11 +44,17 @@ class LocationFragment : Fragment() {
         val fragment = LocationDetail().apply {
             arguments = bundle
         }
-        parentFragmentManager.beginTransaction()
+       /* parentFragmentManager.beginTransaction()
 
             .replace(R.id.containerPrincipal, fragment)
             .addToBackStack(null)
-            .commit()
+            .commit()*/
+
+        // Obtener la instancia de FragmentManager del MainActivity
+        val fragmentManager = requireActivity().supportFragmentManager
+
+        // Llamar al método showSecondaryFragment() en el MainActivity para mostrar el fragmento secundario
+        (requireActivity() as MainActivity).showSecondaryFragment(fragment)
     }
 
     override fun onCreateView(
